@@ -1,0 +1,16 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: gilson
+      POSTGRES_PASSWORD: gilson
+      POSTGRES_DB: gilson
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+    ports:
+      - "5432:5432"
+
+volumes:
+  db:

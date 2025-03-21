@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  postgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: gostudy
+      POSTGRES_PASSWORD: gostudy
+      POSTGRES_DB: gostudy
+    volumes:
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
